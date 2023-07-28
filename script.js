@@ -44,14 +44,38 @@ const loadNewCards = () => {
 }
 
 // const cards = document.querySelectorAll('.card');
+// document.addEventListener('DOMContentLoaded', function() {
+//     let currentPage = 0;
+//     // const cards = document.querySelectorAll('.card');
+//     // cards_lenght = cards.length
+//     console.log(cards_lenght)
+//     document.addEventListener('keydown', function(event) {
+//       if (event.key === 'ArrowUp') {
+//         currentPage = Math.max(0, currentPage - 1);
+//       } else if (event.key === 'ArrowDown') {
+//         currentPage = Math.min(cards_lenght - 1, currentPage + 1);
+//       }
+  
+//       scrollToPage(currentPage);
+//     });
+  
+//     function scrollToPage(pageIndex) {
+//       const yOffset = pageIndex * window.innerHeight;
+//       window.scrollTo(0, yOffset);
+//     }
+//   });
+
 document.addEventListener('DOMContentLoaded', function() {
     let currentPage = 0;
     // const cards = document.querySelectorAll('.card');
-    console.log(cards_lenght)
-    document.addEventListener('keydown', function(event) {
-      if (event.key === 'ArrowUp') {
+    // const cardsLength = cards.length;
+  
+    document.addEventListener('wheel', function(event) {
+      if (event.deltaY < 0) {
+        // Scrolling up
         currentPage = Math.max(0, currentPage - 1);
-      } else if (event.key === 'ArrowDown') {
+      } else if (event.deltaY > 0) {
+        // Scrolling down
         currentPage = Math.min(cards_lenght - 1, currentPage + 1);
       }
   
@@ -63,4 +87,5 @@ document.addEventListener('DOMContentLoaded', function() {
       window.scrollTo(0, yOffset);
     }
   });
+  
   
