@@ -90,9 +90,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // ==========================
+    const pageHeight = cards[0].getBoundingClientRect().height;
   
     function scrollToPage(pageIndex) {
-      const yOffset = pageIndex * window.innerHeight;
+      const yOffset = pageIndex * pageHeight; //window.innerHeight;
       window.scrollTo(0, yOffset);
     }
   });
